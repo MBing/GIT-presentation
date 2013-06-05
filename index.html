@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Git it on (includes GitHub)</title>
+
+    <meta name="description" content="Git Version Control System">
+    <meta name="author" content="Martin Bing">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>git it on</h1>
+                <div>a hands on presentation by</div>
+                <div style="text-align: center;">
+                <a href="https://twitter.com/MartinBing">@martinbing</a><br>
+                </div>
+            </section>
+
+            <section>
+                <section>
+                    <h2>git what?</h2>
+                    <div>
+                        <ul>
+                            <li class="fragment" data-fragment-index="0">Open Source </li>
+                            <li class="fragment" data-fragment-index="1">Distributed Version Control System (DVCS)</li>
+                            <li class="fragment" data-fragment-index="2">(VCS) aka Source Code Management (SCM)</li>
+                            <li class="fragment" data-fragment-index="3">Tool to keep track of changes (in files)</li>
+                            <li class="fragment" data-fragment-index="4">Command Line (BASH)</li>
+                            <li class="fragment" data-fragment-index="5">Supported by UNIX-like systems (Linux, Mac OS X, Solaris) and Windows</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h2>Version control systems</h2>
+                    <div>
+                        <ul>
+                            <li class="fragment" data-fragment-index="0">Local</li>
+                            <li class="fragment" data-fragment-index="1">Centralized</li>
+                            <li class="fragment" data-fragment-index="2">Distributed</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Local version control system</h2>
+                    <a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control#Local-Version-Control-Systems">
+                        <img src="./img/local_vcs.png" style="height: 519px;">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>Centralized version control system</h2>
+                    <a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control#Centralized-Version-Control-Systems">
+                        <img src="./img/centralized_vcs.png" style="font-size: 75.96px; height: 525px;">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>distributed version control system</h2>
+                    <a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems">
+                        <img src="./img/distributed_vcs.png" style="font-size: 75.96px; height: 520px;">
+                    </a>
+                </section>
+            </section>
+
+            <section>
+                <section><h2>History</h2>
+                    <div style="float: right;">
+                        <img src="./img/Linus_Torvalds.jpeg" style="height: 237px;">
+                    </div>
+                    <ul>
+                        <li class="fragment">GIT created in 2005 by Linus Torvalds</li>
+                        <li class="fragment">Developed on a Linux (what else?)</li>
+                        <li class="fragment">Made in 2 weeks</li>
+                        <li class="fragment">Why pay if you can build it better <font style="font-size: 24px;">(ref. BitKeeper)</font></li>
+                        <li class="fragment">See the man in action: <a href="http://www.youtube.com/watch?gl=BE&amp;v=4XpnKHJAok8">Linus Torvalds on Git</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>predecessors</h2>
+                    <div>
+                        <ul>
+                            <li class="fragment">(SCCS) Source Code Control System<br>1972, closed source (FIFO)</li>
+                            <li class="fragment">(RCS) Revision Control System<br>1982, open source (LIFO)</li>
+                            <li class="fragment">(CVS) Concurrent Versions System<br>1986-1990, open source (+users on 1 file)</li>
+                            <li class="fragment">(SVN) Apache Subversion<br>2000, open source (+non-txt-files)</li>
+                            <li class="fragment">(SCM) BitKeeper <br>2000, closed source, proprietary<br>free 'community version' till april 2005<br><font style="font-size: 24px;">(used for linux kernel 2002-2005)</font></li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>why use git?</h2>
+                    <div>
+                        <ul>
+                            <li class="fragment">To check edits (code)
+                                <ul>
+                                    <li class="fragment">review history log of changes</li>
+                                    <li class="fragment">view diff between versions</li>
+                                    <li class="fragment">retrieve old versions</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">To share changes with collabs</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git basics</h2>
+                    <div>
+                        <img src="./img/diff_img.png" style="height: 252px;">
+                    </div>
+                    <div>
+                        <img src="./img/snapshots_img.png" style="height: 252px;">
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h2>!!! GIT can not track !!!</h2>
+                <div>
+                    <ul>
+                        <li>Non-text files
+                            <ul>
+                                <li>binary files (imgs etc..)</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Word Processing files</li>
+                        <li class="fragment">Spreadsheets</li>
+                        <li class="fragment">PDF's</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>git who?</h2>
+                <div>
+                    <ul>
+                        <li class="fragment">People NOT afraid of command-line tools</li>
+                        <li class="fragment">Programmers &amp; developers</li>
+                        <li class="fragment">mainly used languages:
+                            <ul>
+                                <li class="fragment">HTML </li>
+                                <li class="fragment">CSS</li>
+                                <li class="fragment">JavaScript</li>
+                                <li class="fragment">...</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>hands on..?</h2>
+                <img src="./img/frankenstein-monsterfromhell-grabbing-hands.jpg" style="height: 501px;">
+            </section>
+
+            <section>
+                <section>
+                    <h2>SET UP GIT</h2>
+                    <div style="font-size: 36.37566375732422px; font-style: normal; font-variant: normal; text-transform: none;">DOWNLOAD:</div>
+                    <div style="font-size: 36.37566375732422px; font-style: normal; font-variant: normal; text-transform: none;">
+                        <a href="http://git-scm.com/downloads" style="text-align: left;">http://git-scm.com/downloads</a><br>
+                    </div>
+                    <br>
+                    <div style="font-size: 36.37566375732422px; font-style: normal; font-variant: normal; text-transform: none;">INSTALL </div>
+                    <br>
+                    <div style="font-size: 36.37566375732422px; font-style: normal; font-variant: normal; text-transform: none;">See guidelines 
+                        <a href="https://help.github.com/articles/set-up-git">here</a>
+                    </div>
+                    <div style="font-size: 36.37566375732422px; font-style: normal; font-variant: normal; text-transform: none;">or following slides to view the set up process</div>
+                    <div style="font-size: 36.37566375732422px; font-style: normal; font-variant: normal; text-transform: none;">(Windows)</div>
+                </section>
+
+                <section>
+                    <img src="./img/bootcamp_1_win_install_1.jpg" style="height: 590px;">
+                </section>
+
+                <section>
+                    <img src="./img/bootcamp_1_win_install_2.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_3.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_4.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_5.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_6.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_7.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_8.jpg" style="height: 590px;">
+                </section>
+                <section>
+                    <img src="./img/bootcamp_1_win_install_9.jpg" style="height: 590px;">
+                </section>
+            </section>
+
+            <section>
+                <img src="./img/pda-fail-5th-wheel.jpg" style="height: 511px;">
+            </section>
+
+            <section>
+                <section>
+                    <h2>GIT UP SET</h2>
+                    <div>
+                        <br>
+                        <div>Create an account on: 
+                            <a href="https://github.com/signup/free">https://github.com/signup/free</a>
+                        </div>
+                        <br>
+                        <div>username :</div>
+                        <div>
+                            <pre><code> $ git config --global user.name "Your name here" </code><code> # Sets the default name for git to use when you commit</code></pre>
+                        </div>
+                        <div>email:</div>
+
+                        <div>
+                            <pre><code> $ git config --global user.email "Your email here"</code><code> # Sets the default email for git to use when you commit</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git bash</h2>
+                        <div>
+                            <pre><code> # some BASH commands you will use quite often from now on:</code><code> $ ls #show contents of directory you are in</code><code> $ cd Documents</code><code> $ mkdir git_mb</code><code> $ cd git_mb</code><code> $ git init #initialise this working directory as a new repo</code><code> $ touch README.md</code><code> $ vi README.md </code><code> # you can edit this file in any text based editor like notepad</code><code> </code></pre>
+                        </div>
+                </section>
+
+                <section>
+                    <h2>git status</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git status</code><code> # On branch master</code><code> # </code><code> # Initial Commit</code><code> # </code><code> # Untracked files:</code><code> #    (use "git add &lt;file&gt;... " to include in what will be committed)</code><code> # </code><code> #     README.md</code><code> nothing added to commit but untracked files present (use "git add"</code><code> to track)</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Git add</h2>
+                    <div >
+                        <pre><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git add README.md</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git status</code><code> # On branch master</code><code> # </code><code> # Initial Commit</code><code> # </code><code> # Changes to be committed:</code><code> #    (use "git rm --cached &lt;file&gt;... " to unstage)</code><code> # </code><code> #     new file:README.md</code><code> #</code><code> Martin@MB-PC ~/Documents/git_mb (master)</font></code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git commit</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git commit -m 'Initialise repo and creation of readme file'</code><code> [master (root-commit) e881faa] initialise repo and creation</code><code> of readme file</code><code> 1 file changed, 1 insertion(+)</code><code> create mode 100644 README.md</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git status</code><code> # On branch master</code><code> nothing to commit, working directory clean</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git log</h2>
+                    <div>
+                        <pre style="font-style: normal; font-variant: normal; width: 860.0122680664063px;"><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git log</code><code> commit e881faa051b1fb5e51074e05e88a744349cb97a6</code><code> Author: MBing &lt;email@somedomain.com&gt;</code><code> Date:  Mon Jun 3 22:38:32 2013 +0200</code><code></code><code>   Initialise repo and creation of readme file</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ </code></pre>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h2>I git... euh lost?!?</h2>
+                <div>Git Architecture simplified:</div>
+                <div>
+                    <img src="./img/index_add_commit_overview.png" style="height: 484px;">
+                </div>
+            </section>
+
+            <section>
+                <h2>What is github?</h2>
+                <div style="float: right;">
+                    <img src="./img/Octocat.png" style="text-align: right; height: 232px;"><br>
+                </div>
+                <div class="absolute-element" style="position: absolute; z-index: 4; ">
+                    <ul>
+                        <li>Web Based Hosting Service for <br>software development</li>
+                        <li>Uses Git revision control system</li>
+                        <li>Free for open source repo's</li>
+                        <li>Paid plans available for private repo's</li>
+                        <li>easy to use GUI's available </li>
+                        <li>Makes the use of Git easier for most people</li>
+                    </ul>
+                    <div><br>
+                        <a href="https://help.github.com/">https://help.github.com/</a>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <section>
+                    <h2>GITHUB REPO</h2>
+                    <div>click 
+                        <a href="http://help.github.com/create-a-repo">here</a> to see the online tutorial on GitHub
+                    </div>
+                </section>
+
+                <section>
+                    <h2>github - fork a repo</h2>
+                    <div>
+                        <img src="./img/forkarepo1.png" style="width: 940px;"><br>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>github clone</h2>
+                    <div>
+                        <img src="./img/forkarepo2.png" style=""><br>
+                    </div>
+                    <div>This is your own folder, not the original repo!!</div>
+                    <div>(look for your username in the git uri)</div>
+                </section>
+
+                <section>
+                    <h2>git clone</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ git clone https://github.com/yourusername/GIT-presentation.git</code><code> Cloning into 'GIT-presentation'...</code><code> remote: Counting objects: 6, done.</code><code> remote: Compressing objects: 100% (4/4), done.</code><code> remote: Total 6 (delta 1), reused 0 (delta 0)</code><code> Unpacking objects: 100% (6/6), done.</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $ ls</code><code> GIT-presentation</code><code> $ cd GIT-presentation/</code><code> $ ls</code><code> README.md</code><code> Martin@MB-PC ~/Documents/git_mb (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>GIT add new file</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ touch yourname.html</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git status</code><code> # On branch master</code><code> # Untracked files:</code><code> #    (use "git add &lt;file&gt; ..." to include in what will be committed)</code><code> #</code><code> #        yourname.html</code><code> nothing added to commit but untracked files present (use git </code><code> "git add" to track)</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git add</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git add yourname.html</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git status</code><code> # On branch master</code><code> # Changes to be committed:</code><code> #    (use "git reset HEAD &lt;file&gt;... " to unstage)</code><code> # </code><code> #     new file:   yourname.html</code><code> #</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git commit</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git commit -m 'adding an html file with my name'</code><code> [master 328e0cb] adding an html file with my name</code><code> 1 file changed, 0 insertions(+), 0 deletions(-)</code><code> create mode 100644 yourname.html</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git status</code><code> # On branch master </code><code> # Your branch is ahead of 'origin/master' by 1 commit.</code><code> #    (use "git push" to publish your local commits)</code><code> # </code><code> nothing to commit, working directory clean</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>git push</h2>
+                    <div>
+                        <pre><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git push origin master</code><code> Counting objects: 4 done.</code><code> Delta compression using up to 2 threads.</code><code> Compressing objects: 100% (2/2), done.</code><code> Writing objects: 100% (3/3), 302 bytes, done.</code><code> Total 3 (delta 0), reused 0 (delta 0)</code><code> To https://github.com/yourname/GIT-presentation.git</code><code>    ad764dc..328e0cb master -&gt; master</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $ git status</code><code> # On branch master </code><code> nothing to commit, working directory clean</code><code> Martin@MB-PC ~/Documents/GIT-presentation (master)</code><code> $</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>go and watch github</h2>
+                    <div>
+                        <img src="./img/pushed.png" style="height: 404px;">
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h2>other things you can do with git</h2>
+                <div>
+                    <ul>
+                        <li>fetch</li>
+                        <li>merge</li>
+                        <li>checkout</li>
+                        <li>branch</li>
+                        <li>diff</li>
+                        <li>pull</li>
+                        <li>show</li>
+                        <li>reset</li>
+                        <li>...</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>resources</h2>
+                <div>The Pro Git book by Scott Chacun (creator GitHub):</div>
+                <div>
+                    <a href="http://git-scm.com/book">http://git-scm.com/book</a><br>
+                </div>
+                <div><br></div>
+                <div>Heroku Cheat Sheet :</div>
+                <div>
+                    <a href="https://na1.salesforce.com/help/doc/en/salesforce_git_developer_cheatsheet.pdf">Cheat Sheet PDF file link</a>
+                </div>
+                <div><br></div>
+                <div>YouTube:</div>
+                <div>
+                    <a href="http://www.youtube.com/watch?v=ZDR433b0HJY">Introduction to Git with Scott Chacun</a>
+                </div>
+                <div>
+                    <a href="http://www.youtube.com/watch?v=GYnOwPl8yCE">Power Your Workflow with Git</a> (Patrick Hogan)
+                </div>
+            </section>
+
+            <section>
+                <h2>git started!</h2>
+                <div>
+                    <img src="./img/thank_you.jpg">
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    
+    <script>
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+
+</body>
+</html>
